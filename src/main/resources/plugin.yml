@@ -1,0 +1,52 @@
+name: WinniePlugin
+version: '${project.version}'
+main: me.winniepat.winnieplugin.WinniePlugin
+api-version: '1.20'
+authors: [WinniePat]
+description: Plugin von und für WinniePat und Ghostsmoke
+website: https://ghostsmoke.de
+commands:
+  heal:
+    description: Healt den Spieler.
+    permission: winnieplugin.admin.heal
+  feed:
+    description: Sättigt den Spieler
+    permission: winnieplugin.admin.feed
+  jointeam:
+    description: Joint dem gewählten Team und erstellt die Teams
+    permission: winnieplugin.jointeam
+  ghostsmoke:
+    description: Einfach so
+    permission: winnieplugin.ghostsmoke
+  winniepat:
+    description: Einfach so
+    permission: winnieplugin.winniepat
+  givewand:
+    description: gibt dir Ghosts Stab :)
+    permission: winnieplugin.admin.givewand
+  help:
+    description: Gibt dir Hilfe
+    permission: winnieplugin.help
+  configureteams:
+    description: Richtet die Teams komplett ein!
+    permission: winnieplugin.admin.configureteams
+  teamwechsel:
+    description: Wechselt das Team
+    permission: winnieplugin.teamwechsel
+  admin:
+    description: Opens admin inv
+    permission: winnieplugin.admin.admin
+  startevent:
+    description: starts the event
+    permission: winnieplugin.admin.startevent
+
+
+permissions:
+  winnieplugin.jointeam:
+    description: Laesst den Spieler sein Team auswaehlen
+    default: true
+  winnieplugin.givewand:
+    description: Gibt dem Spieler den Zauberstab
+    default: op
+  winnieplugin.teamwechsel:
+    default: op
