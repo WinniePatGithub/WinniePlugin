@@ -1,0 +1,2 @@
+Clearchat command hinzugefügt
+Bugfixes
