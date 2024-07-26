@@ -1,4 +1,4 @@
-package me.winniepat.winnieplugin.items;
+package me.winniepat.winnieplugin.Utils.Items;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -14,13 +14,13 @@ import java.util.List;
 
 public class ItemManager {
     public static ItemStack wand;
+    public static ItemStack easterEgg;
+    public static boolean isCraftable;
 
-    public static boolean enabled = true;
 
     public static void init() {
-        if(enabled) {
-            createWand();
-        }
+        createWand();
+        createEasterEgg();
     }
 
     private static void createWand() {
@@ -35,25 +35,27 @@ public class ItemManager {
         item.setItemMeta(meta);
         wand = item;
 
-        if(enabled) {
-            ShapedRecipe sr = new ShapedRecipe(NamespacedKey.minecraft("wand"), item);
-            sr.shape("B  ",
-                    " S ",
-                    "  S");
-            sr.setIngredient('B', Material.BLAZE_POWDER);
-            sr.setIngredient('S', Material.STICK);
-            Bukkit.getServer().addRecipe(sr);
-        }
+    }
+
+    private static void createEasterEgg() {
+        ItemStack item = new ItemStack(Material.DRAGON_EGG, 1);
+        ItemMeta meta = item.getItemMeta();
+        meta.setDisplayName("§5Easter Egg");
+        List<String> lore = new ArrayList<>();
+        lore.add("Glückwunsch, du hast das Easteregg gefunden!");
+        meta.setLore(lore);
+        meta.addEnchant(Enchantment.LUCK, 1, false);
+        meta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        item.setItemMeta(meta);
+        easterEgg = item;
+
 
         ShapedRecipe sr2 = new ShapedRecipe(NamespacedKey.minecraft("easteregg"), new ItemStack(Material.DRAGON_EGG, 1));
-        sr2.shape(" C ",
-                  "CRC",
-                  "SSS");
+        sr2.shape(" C ", "CRC", "SSS");
         sr2.setIngredient('C', Material.END_CRYSTAL);
         sr2.setIngredient('R', Material.END_ROD);
         sr2.setIngredient('S', Material.END_STONE);
         Bukkit.getServer().addRecipe(sr2);
+        }
     }
 
-
-}

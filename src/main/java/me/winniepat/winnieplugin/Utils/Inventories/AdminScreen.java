@@ -1,4 +1,4 @@
-package me.winniepat.winnieplugin.inventories;
+package me.winniepat.winnieplugin.Utils.Inventories;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -6,9 +6,9 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class AdminScreen implements InventoryHolder {
@@ -34,14 +34,32 @@ public class AdminScreen implements InventoryHolder {
         inv.setItem(inv.firstEmpty(), item);
 
         List<String> lore3 = new ArrayList<>();
-        lore3.add("§7Konfiguriert alle Sachen");
-        lore3.add("§7Weil ich zu faul bin, mehrere Commands auszuführen");
-        item = createItem("Setup", Material.LIGHT_BLUE_STAINED_GLASS_PANE, lore3);
-        inv.setItem(inv.firstEmpty(), item);
+        lore3.add("§4Aktiviert den OP Modus");
+        lore3.add("§7Unendlich damage");
+        lore3.add("§7Unendlich Herzen");
+        lore3.add("§7etc");
+        item = createItem("OP MODUS AN", Material.RED_STAINED_GLASS_PANE, lore3);
+        _inventory.setItem(_inventory.firstEmpty(), item);
 
         List<String> lore4 = new ArrayList<>();
-        item = createItem(" ", Material.GRAY_STAINED_GLASS_PANE, lore4);
-        inv.setItem(inv.firstEmpty(), item);
+        lore4.add("§aDeaktiviert den OP Modus");
+        lore4.add("§7Unendlich damage");
+        lore4.add("§7Unendlich Herzen");
+        lore4.add("§7etc");
+        item = createItem("OP MODUS AUS", Material.LIME_STAINED_GLASS_PANE, lore4);
+        _inventory.setItem(_inventory.firstEmpty(), item);
+
+        List<String> lore5 = new ArrayList<>();
+        item = createItem(" ", Material.GRAY_STAINED_GLASS_PANE, lore5);
+        _inventory.setItem(_inventory.firstEmpty(), item);
+
+        List<String> lore6 = new ArrayList<>();
+        item = createItem("§aSetup", Material.BLUE_STAINED_GLASS_PANE, lore6);
+        _inventory.setItem(_inventory.firstEmpty(), item);
+
+        List<String> lore7 = new ArrayList<>();
+        item = createItem(" ", Material.GRAY_STAINED_GLASS_PANE, lore7);
+        _inventory.setItem(_inventory.firstEmpty(), item);
 
     }
 
@@ -55,7 +73,7 @@ public class AdminScreen implements InventoryHolder {
     }
 
     @Override
-    public Inventory getInventory() {
-        return inv;
+    public @NotNull Inventory getInventory() {
+        return _inventory;
     }
 }

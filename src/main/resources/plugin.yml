@@ -5,6 +5,7 @@ api-version: '1.20'
 authors: [WinniePat]
 description: Plugin von und für WinniePat und Ghostsmoke
 website: https://ghostsmoke.de
+
 commands:
   heal:
     description: Healt den Spieler.
@@ -24,9 +25,6 @@ commands:
   givewand:
     description: gibt dir Ghosts Stab :)
     permission: winnieplugin.admin.givewand
-  help:
-    description: Gibt dir Hilfe
-    permission: winnieplugin.help
   configureteams:
     description: Richtet die Teams komplett ein!
     permission: winnieplugin.admin.configureteams
@@ -39,7 +37,9 @@ commands:
   startevent:
     description: starts the event
     permission: winnieplugin.admin.startevent
-
+  clearchat:
+    description: Cleared den Chat
+    permission: winnieplugin.admin.clearchat
 
 permissions:
   winnieplugin.jointeam:
@@ -49,4 +49,7 @@ permissions:
     description: Gibt dem Spieler den Zauberstab
     default: op
   winnieplugin.teamwechsel:
+    default: op
+  winnieplugin.admin.clearchat:
+    description: Cleared den Chat
     default: op

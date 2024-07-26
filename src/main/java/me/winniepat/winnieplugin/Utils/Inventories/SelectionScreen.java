@@ -1,4 +1,4 @@
-package me.winniepat.winnieplugin.inventories;
+package me.winniepat.winnieplugin.Utils.Inventories;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -6,7 +6,6 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.InventoryHolder;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -30,7 +29,6 @@ public class SelectionScreen implements InventoryHolder {
 
         List<String> lore = new ArrayList<>();
         lore.add("§7Suche dir dein Team aus, um diesem Beizutreten!");
-        lore.add("§7TEST");
         item = createItem("§b§lSuch dir dein Team aus!", Material.BOOK, lore);
         inv.setItem(inv.firstEmpty(), item);
 
