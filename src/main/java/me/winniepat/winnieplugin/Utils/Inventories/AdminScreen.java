@@ -13,10 +13,10 @@ import java.util.List;
 
 public class AdminScreen implements InventoryHolder {
 
-    private Inventory inv;
+    private final Inventory _inventory;
 
     public AdminScreen() {
-        inv = Bukkit.createInventory(this, 18, "Team Auswahl");
+        _inventory = Bukkit.createInventory(this, 18, "Team Auswahl");
         init();
     }
 
@@ -27,11 +27,11 @@ public class AdminScreen implements InventoryHolder {
         lore1.add("§7Startet das Event.");
         lore1.add("§cNicht umkehrbar");
         item = createItem("§aStart Event", Material.GREEN_STAINED_GLASS_PANE, lore1);
-        inv.setItem(inv.firstEmpty(), item);
+        _inventory.setItem(_inventory.firstEmpty(), item);
 
         List<String> lore2 = new ArrayList<>();
         item = createItem(" ", Material.GRAY_STAINED_GLASS_PANE, lore2);
-        inv.setItem(inv.firstEmpty(), item);
+        _inventory.setItem(_inventory.firstEmpty(), item);
 
         List<String> lore3 = new ArrayList<>();
         lore3.add("§4Aktiviert den OP Modus");
