@@ -1,15 +1,29 @@
 package me.winniepat.winnieplugin.Listeners;
 
 import me.winniepat.winnieplugin.Utils.Scoreboards.ScoreboardUtils;
+import me.winniepat.winnieplugin.WinniePlugin;
 import org.bukkit.Bukkit;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
 
+import java.sql.SQLException;
+
 public class PlayerJoinListener implements Listener {
 
+    private final WinniePlugin winniePlugin;
+
+    public PlayerJoinListener(WinniePlugin winniePlugin) {
+        this.winniePlugin = winniePlugin;
+    }
+
     @EventHandler
-    private static void onPlayerJoin(PlayerJoinEvent event) {
+    private void onPlayerJoin(PlayerJoinEvent event) throws SQLException {
+
+        if(!event.getPlayer().hasPlayedBefore()) {
+            this.winniePlugin.getPointsDatabase().addPlayer(event.getPlayer());
+        }
+
         String playerName = event.getPlayer().getName();
         Bukkit.broadcastMessage("§a\uD83E\uDC7A§r§3 " + playerName);
         event.getPlayer().setScoreboard(ScoreboardUtils.getBaseScoreboard(event.getPlayer()));

@@ -40,6 +40,12 @@ commands:
   clearchat:
     description: Cleared den Chat
     permission: winnieplugin.admin.clearchat
+  points:
+    description: Shows the amount of points a player has
+    usage: /points [player]
+  setpoints:
+    description: Sets the amount of points a player has
+    usage: /setpoints <player> <amount>
 
 permissions:
   winnieplugin.jointeam:

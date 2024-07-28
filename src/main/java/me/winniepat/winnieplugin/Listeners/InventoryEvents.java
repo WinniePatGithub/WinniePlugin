@@ -80,7 +80,7 @@ public class InventoryEvents implements Listener {
                 player.sendMessage("§cOP Modus aktiviert!");
             }
             if (e.getCurrentItem().getType() == Material.GRAY_STAINED_GLASS_PANE) {
-                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "tell " + player.getName() + "Ghost hat nen Kleinen \uD83D\uDC4D");
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "tell " + player.getName() + " Ghost hat nen Kleinen \uD83D\uDC4D");
             }
             if(e.getCurrentItem().getType() == Material.LIGHT_BLUE_STAINED_GLASS_PANE) {
                 Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "configureteams");
