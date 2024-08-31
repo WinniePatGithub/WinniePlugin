@@ -20,12 +20,9 @@ public class PlayerJoinListener implements Listener {
     @EventHandler
     private void onPlayerJoin(PlayerJoinEvent event) throws SQLException {
 
-        if(!event.getPlayer().hasPlayedBefore()) {
-            this.winniePlugin.getPointsDatabase().addPlayer(event.getPlayer());
-        }
+
 
         String playerName = event.getPlayer().getName();
-        Bukkit.broadcastMessage("§a\uD83E\uDC7A§r§3 " + playerName);
         event.getPlayer().setScoreboard(ScoreboardUtils.getBaseScoreboard(event.getPlayer()));
     }
 }

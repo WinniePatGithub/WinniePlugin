@@ -46,6 +46,10 @@ commands:
   setpoints:
     description: Sets the amount of points a player has
     usage: /setpoints <player> <amount>
+  Spawn:
+    description: Tps player to spawn
+    usage: /spawn
+    aliases: spawn
 
 permissions:
   winnieplugin.jointeam:

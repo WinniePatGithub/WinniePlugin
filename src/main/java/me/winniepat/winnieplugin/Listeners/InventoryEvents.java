@@ -8,8 +8,12 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.permissions.PermissionAttachment;
+
+import java.util.Objects;
 
 public class InventoryEvents implements Listener {
+
 
     @EventHandler
     public void onClick(InventoryClickEvent e) {
@@ -22,16 +26,24 @@ public class InventoryEvents implements Listener {
             if (e.getCurrentItem() == null) {
                 return;
             }
-            if (e.getCurrentItem().getType() == Material.LIGHT_BLUE_STAINED_GLASS_PANE) {
-                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "team leave " + player.getName());
-                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "team join Blau " + player.getName());
+            if (e.getCurrentItem().getType() == Material.LIGHT_BLUE_STAINED_GLASS_PANE && player.hasPermission("winnieplugin.jointeam")) {
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + player.getName() + " parent set default");
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + player.getName() + " parent add blau");
+
+                e.getWhoClicked().addAttachment(Objects.requireNonNull(Bukkit.getPluginManager().getPlugin("WinniePlugin")), "winnieplugin.jointeam", false);
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "tag " + player.getName() + " add Blau");
+
                 player.sendMessage("§eDu bist Team Blau beigetreten!");
                 player.closeInventory();
             } else if (e.getSlot() == 4) {
                 player.sendMessage("§dSuche dir dein Team aus, um diesem beizutreten!");
-            } else if (e.getCurrentItem().getType() == Material.RED_STAINED_GLASS_PANE) {
-                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "team leave " + player.getName());
-                Bukkit.dispatchCommand(Bukkit.getConsoleSender(),   "team join Rot " + player.getName());
+            } else if (e.getCurrentItem().getType() == Material.RED_STAINED_GLASS_PANE && player.hasPermission("winnieplugin.jointeam")) {
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + player.getName() + " parent set default");
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "lp user " + player.getName() + " parent add rot");
+
+                e.getWhoClicked().addAttachment(Objects.requireNonNull(Bukkit.getPluginManager().getPlugin("WinniePlugin")), "winnieplugin.jointeam", false);
+                Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "tag " + player.getName() + " add Rot");
+
                 player.sendMessage("§eDu bist Team Rot beigetreten!");
                 player.closeInventory();
             }

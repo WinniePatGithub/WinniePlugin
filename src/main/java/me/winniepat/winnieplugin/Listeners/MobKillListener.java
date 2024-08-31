@@ -21,14 +21,5 @@ public class MobKillListener implements Listener {
         if(e.getEntity().getKiller() == null) return;
 
         Player killer = e.getEntity().getKiller();
-
-        //get the players current points
-        int points = winniePlugin.getPointsDatabase().getPlayerPoints(killer);
-        int newPoints = (int) (Math.random() * 10) + 1;
-        points += newPoints;
-
-        winniePlugin.getPointsDatabase().updatePlayerPoints(killer, points);
-
-        killer.sendMessage("§a+" + newPoints + " pts");
     }
 }

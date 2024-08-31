@@ -12,6 +12,5 @@ public class PlayerLeaveListener implements Listener {
     private static void onPlayerLeave(PlayerQuitEvent event) {
         Player player = event.getPlayer();
         String playerName = event.getPlayer().getName();
-        Bukkit.broadcastMessage("§c\uD83E\uDC78§r§3 " + playerName);
     }
 }
